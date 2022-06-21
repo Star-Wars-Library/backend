@@ -29,8 +29,7 @@ public class ShipServiceImpl implements ShipService {
 
     @Override
     public ShipOutDto get(long id) {
-        Ship ship = shipRepository.findById(id).orElseThrow(() -> new ShipNotFoundException(id));
-        return getShipOutDto(ship);
+        return getShipOutDto(getShipOrFail(id));
     }
 
     @Override
