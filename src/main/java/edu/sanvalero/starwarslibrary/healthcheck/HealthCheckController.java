@@ -1,18 +1,16 @@
-package edu.sanvalero.starwarslibrary.test;
+package edu.sanvalero.starwarslibrary.healthcheck;
 
-
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/test")
-public class TestController {
+@RequestMapping("/health-check")
+public class HealthCheckController {
     @GetMapping()
     public ResponseEntity<String> test() {
-        return new ResponseEntity<>("Hola mundo", HttpStatus.OK);
+        return ResponseEntity.ok("Hola mundo");
     }
 
 }

@@ -31,3 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/star-wars-library.mv.db
