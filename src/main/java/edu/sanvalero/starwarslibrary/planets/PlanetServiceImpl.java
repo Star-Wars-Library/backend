@@ -29,8 +29,7 @@ public class PlanetServiceImpl implements PlanetService {
 
     @Override
     public PlanetOutDto get(long id) {
-        Planet planet = planetRepository.findById(id).orElseThrow(() -> new PlanetNotFoundException(id));
-        return getPlanetOutDto(planet);
+        return getPlanetOutDto(getPlanetOrFail(id));
     }
 
     @Override
