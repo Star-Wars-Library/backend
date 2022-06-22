@@ -1,12 +1,14 @@
 version: "3.9"
 
 services:
-#  web:
-#    build: .
-#    depends_on:
-#      - db
-#    environment:
-#      DUMMY: 'dummy_text_default'
+  api:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "80:3000"
+    environment:
+      spring_profiles_active: docker
 
   db:
     image: mysql:8.0.27
