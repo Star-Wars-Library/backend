@@ -1,14 +1,13 @@
 package edu.sanvalero.starwarslibrary.characters;
 
 import edu.sanvalero.starwarslibrary.characters.dto.CharacterInDto;
-
 import edu.sanvalero.starwarslibrary.characters.dto.CharacterOutDto;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public interface CharacterService {
-    Set<CharacterOutDto> get();
+    List<CharacterOutDto> get();
 
     CharacterOutDto get(long id);
 

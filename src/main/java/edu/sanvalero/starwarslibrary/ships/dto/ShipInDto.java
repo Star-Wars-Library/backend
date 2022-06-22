@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ShipInDto {
+    String name;
     String model;
     String constructor;
     float length;

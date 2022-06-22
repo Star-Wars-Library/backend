@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SpeciesInDto {
+    String name;
     long nativePlanet;
     String language;
     float meanHeight;

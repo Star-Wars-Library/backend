@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class WeaponInDto {
+    String name;
     String techLevel;
     int ammunition;
     float weight;

@@ -13,6 +13,7 @@ public class CharacterInDto {
     String name;
     String gender;
     LocalDate yearBirth;
+    Boolean forceSensitive;
     long species;
     long ship;
     long weapon;

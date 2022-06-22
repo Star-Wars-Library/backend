@@ -1,7 +1,6 @@
 package edu.sanvalero.starwarslibrary.characters;
 
 import edu.sanvalero.starwarslibrary.characters.dto.CharacterInDto;
-
 import edu.sanvalero.starwarslibrary.characters.dto.CharacterOutDto;
 import edu.sanvalero.starwarslibrary.characters.exception.CharacterInvalidPatchParameterException;
 import edu.sanvalero.starwarslibrary.characters.exception.CharacterNotFoundException;
@@ -11,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 @Service
 public class CharacterServiceImpl implements CharacterService {
@@ -23,22 +22,21 @@ public class CharacterServiceImpl implements CharacterService {
     private ModelMapper modelMapper;
 
     @Override
-    public Set<CharacterOutDto> get() {
-        Set<Character> characters = characterRepository.findAll();
+    public List<CharacterOutDto> get() {
+        List<Character> characters = characterRepository.findAll();
         return getCharacterOutDtos(characters);
     }
 
 
     @Override
     public CharacterOutDto get(long id) {
-        Character character = characterRepository.findById(id).orElseThrow(() -> new CharacterNotFoundException(id));
-        return getCharacterOutDto(character);
+        return getCharacterOutDto(getCharacterOrFail(id));
     }
 
     @Override
     public CharacterOutDto post(CharacterInDto characterInDto) {
         Character newCharacter = new Character();
-        modelMapper.map(characterRepository, newCharacter);
+        modelMapper.map(characterInDto, newCharacter);
         characterRepository.save(newCharacter);
         return getCharacterOutDto(newCharacter);
     }
@@ -103,8 +101,8 @@ public class CharacterServiceImpl implements CharacterService {
         return out;
     }
 
-    private Set<CharacterOutDto> getCharacterOutDtos(Set<Character> characters) {
-        Set<CharacterOutDto> out = new HashSet<>();
+    private List<CharacterOutDto> getCharacterOutDtos(List<Character> characters) {
+        List<CharacterOutDto> out = new ArrayList<>();
         characters.forEach(character -> out.add(getCharacterOutDto(character)));
         return out;
     }

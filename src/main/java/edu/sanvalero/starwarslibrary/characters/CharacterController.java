@@ -1,7 +1,6 @@
 package edu.sanvalero.starwarslibrary.characters;
 
 import edu.sanvalero.starwarslibrary.characters.dto.CharacterInDto;
-
 import edu.sanvalero.starwarslibrary.characters.dto.CharacterOutDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,10 +10,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class CharacterController {
     private static final String PATH = "/characters";
     private final Logger log = LoggerFactory.getLogger(CharacterController.class);
@@ -23,7 +23,7 @@ public class CharacterController {
     private CharacterService characterService;
 
     @GetMapping(PATH)
-    public ResponseEntity<Set<CharacterOutDto>> get() {
+    public ResponseEntity<List<CharacterOutDto>> get() {
         return ResponseEntity.ok(characterService.get());
     }
 
