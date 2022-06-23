@@ -9,9 +9,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class PlanetServiceImpl implements PlanetService {
@@ -21,9 +19,9 @@ public class PlanetServiceImpl implements PlanetService {
     private ModelMapper modelMapper;
 
     @Override
-    public Set<PlanetOutDto> get() {
-        Set<Planet> planets = planetRepository.findAll();
-        Set<PlanetOutDto> out = getPlanetOutDtos(planets);
+    public List<PlanetOutDto> get() {
+        List<Planet> planets = planetRepository.findAll();
+        List<PlanetOutDto> out = getPlanetOutDtos(planets);
         return out;
     }
 
@@ -89,8 +87,8 @@ public class PlanetServiceImpl implements PlanetService {
         return out;
     }
 
-    private Set<PlanetOutDto> getPlanetOutDtos(Set<Planet> planets) {
-        Set<PlanetOutDto> out = new HashSet<>();
+    private List<PlanetOutDto> getPlanetOutDtos(List<Planet> planets) {
+        List<PlanetOutDto> out = new ArrayList<>();
         planets.forEach(planet -> out.add(getPlanetOutDto(planet)));
         return out;
     }

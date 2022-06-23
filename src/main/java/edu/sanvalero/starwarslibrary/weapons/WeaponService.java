@@ -3,11 +3,12 @@ package edu.sanvalero.starwarslibrary.weapons;
 import edu.sanvalero.starwarslibrary.weapons.dto.WeaponInDto;
 import edu.sanvalero.starwarslibrary.weapons.dto.WeaponOutDto;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public interface WeaponService {
-    Set<WeaponOutDto> get();
+    List<WeaponOutDto> get();
 
     WeaponOutDto get(long id);
 

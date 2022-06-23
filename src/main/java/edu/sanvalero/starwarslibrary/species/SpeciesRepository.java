@@ -4,9 +4,10 @@ import edu.sanvalero.starwarslibrary.species.model.Species;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Set;
 
 @Repository
 public interface SpeciesRepository extends CrudRepository<Species, Long> {
-    Set<Species> findAll();
+    List<Species> findAll();
 }

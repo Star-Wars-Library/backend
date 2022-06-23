@@ -3,11 +3,11 @@ package edu.sanvalero.starwarslibrary.planets;
 import edu.sanvalero.starwarslibrary.planets.dto.PlanetInDto;
 import edu.sanvalero.starwarslibrary.planets.dto.PlanetOutDto;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public interface PlanetService {
-    Set<PlanetOutDto> get();
+    List<PlanetOutDto> get();
 
     PlanetOutDto get(long id);
 

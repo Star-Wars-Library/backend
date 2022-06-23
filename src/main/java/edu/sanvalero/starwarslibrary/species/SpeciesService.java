@@ -3,11 +3,11 @@ package edu.sanvalero.starwarslibrary.species;
 import edu.sanvalero.starwarslibrary.species.dto.SpeciesInDto;
 import edu.sanvalero.starwarslibrary.species.dto.SpeciesOutDto;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public interface SpeciesService {
-    Set<SpeciesOutDto> get();
+    List<SpeciesOutDto> get();
 
     SpeciesOutDto get(long id);
 
