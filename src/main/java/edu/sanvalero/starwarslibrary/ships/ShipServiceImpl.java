@@ -9,9 +9,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 @Service
 public class ShipServiceImpl implements ShipService {
@@ -21,9 +21,9 @@ public class ShipServiceImpl implements ShipService {
     private ModelMapper modelMapper;
 
     @Override
-    public Set<ShipOutDto> get() {
-        Set<Ship> ships = shipRepository.findAll();
-        Set<ShipOutDto> out = getShipOutDtos(ships);
+    public List<ShipOutDto> get() {
+        List<Ship> ships = shipRepository.findAll();
+        List<ShipOutDto> out = getShipOutDtos(ships);
         return out;
     }
 
@@ -89,8 +89,8 @@ public class ShipServiceImpl implements ShipService {
         return out;
     }
 
-    private Set<ShipOutDto> getShipOutDtos(Set<Ship> ships) {
-        Set<ShipOutDto> out = new HashSet<>();
+    private List<ShipOutDto> getShipOutDtos(List<Ship> ships) {
+        List<ShipOutDto> out = new ArrayList<>();
         ships.forEach(ship -> out.add(getShipOutDto(ship)));
         return out;
     }

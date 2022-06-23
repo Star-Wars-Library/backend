@@ -9,9 +9,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 @Service
 public class SpeciesServiceImpl implements SpeciesService {
@@ -21,9 +21,9 @@ public class SpeciesServiceImpl implements SpeciesService {
     private ModelMapper modelMapper;
 
     @Override
-    public Set<SpeciesOutDto> get() {
-        Set<Species> species = speciesRepository.findAll();
-        Set<SpeciesOutDto> out = getSpeciesOutDtos(species);
+    public List<SpeciesOutDto> get() {
+        List<Species> species = speciesRepository.findAll();
+        List<SpeciesOutDto> out = getSpeciesOutDtos(species);
         return out;
     }
 
@@ -92,8 +92,8 @@ public class SpeciesServiceImpl implements SpeciesService {
         return out;
     }
 
-    private Set<SpeciesOutDto> getSpeciesOutDtos(Set<Species> species) {
-        Set<SpeciesOutDto> out = new HashSet<>();
+    private List<SpeciesOutDto> getSpeciesOutDtos(List<Species> species) {
+        List<SpeciesOutDto> out = new ArrayList<>();
         species.forEach(s -> out.add(getSpeciesOutDto(s)));
         return out;
     }

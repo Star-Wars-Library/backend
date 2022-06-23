@@ -1,7 +1,7 @@
 package edu.sanvalero.starwarslibrary.ships;
 
-import edu.sanvalero.starwarslibrary.ships.dto.ShipOutDto;
 import edu.sanvalero.starwarslibrary.ships.dto.ShipInDto;
+import edu.sanvalero.starwarslibrary.ships.dto.ShipOutDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 @RestController
 public class ShipController {
@@ -22,7 +22,7 @@ public class ShipController {
     private ShipService shipService;
 
     @GetMapping(PATH)
-    public ResponseEntity<Set<ShipOutDto>> get() {
+    public ResponseEntity<List<ShipOutDto>> get() {
         return ResponseEntity.ok(shipService.get());
     }
 

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 @RestController
 public class PlanetController {
@@ -22,7 +22,7 @@ public class PlanetController {
     private PlanetService planetService;
 
     @GetMapping(PATH)
-    public ResponseEntity<Set<PlanetOutDto>> get() {
+    public ResponseEntity<List<PlanetOutDto>> get() {
         return ResponseEntity.ok(planetService.get());
     }
 

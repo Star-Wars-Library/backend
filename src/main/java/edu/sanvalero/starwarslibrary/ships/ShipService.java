@@ -3,11 +3,11 @@ package edu.sanvalero.starwarslibrary.ships;
 import edu.sanvalero.starwarslibrary.ships.dto.ShipInDto;
 import edu.sanvalero.starwarslibrary.ships.dto.ShipOutDto;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public interface ShipService {
-    Set<ShipOutDto> get();
+    List<ShipOutDto> get();
 
     ShipOutDto get(long id);
 

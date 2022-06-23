@@ -9,9 +9,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 @Service
 public class WeaponServiceImpl implements WeaponService {
@@ -21,9 +21,9 @@ public class WeaponServiceImpl implements WeaponService {
     private ModelMapper modelMapper;
 
     @Override
-    public Set<WeaponOutDto> get() {
-        Set<Weapon> weapons = weaponRepository.findAll();
-        Set<WeaponOutDto> out = getWeaponOutDtos(weapons);
+    public List<WeaponOutDto> get() {
+        List<Weapon> weapons = weaponRepository.findAll();
+        List<WeaponOutDto> out = getWeaponOutDtos(weapons);
         return out;
     }
 
@@ -89,8 +89,8 @@ public class WeaponServiceImpl implements WeaponService {
         return out;
     }
 
-    private Set<WeaponOutDto> getWeaponOutDtos(Set<Weapon> weapons) {
-        Set<WeaponOutDto> out = new HashSet<>();
+    private List<WeaponOutDto> getWeaponOutDtos(List<Weapon> weapons) {
+        List<WeaponOutDto> out = new ArrayList<>();
         weapons.forEach(weapon -> out.add(getWeaponOutDto(weapon)));
         return out;
     }

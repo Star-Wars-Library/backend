@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -22,7 +23,7 @@ public class SpeciesController {
     private SpeciesService speciesService;
 
     @GetMapping(PATH)
-    public ResponseEntity<Set<SpeciesOutDto>> get() {
+    public ResponseEntity<List<SpeciesOutDto>> get() {
         return ResponseEntity.ok(speciesService.get());
     }
 
