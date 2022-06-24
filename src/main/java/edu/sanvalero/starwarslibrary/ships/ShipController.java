@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class ShipController {
     private static final String PATH = "/ships";
     private final Logger log = LoggerFactory.getLogger(ShipController.class);
