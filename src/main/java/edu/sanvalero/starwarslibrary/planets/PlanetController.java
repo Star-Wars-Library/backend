@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class PlanetController {
     private static final String PATH = "/planets";
     private final Logger log = LoggerFactory.getLogger(PlanetController.class);

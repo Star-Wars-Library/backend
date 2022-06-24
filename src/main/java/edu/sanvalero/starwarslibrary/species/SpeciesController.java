@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.Set;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class SpeciesController {
     private static final String PATH = "/species";
     private final Logger log = LoggerFactory.getLogger(SpeciesController.class);

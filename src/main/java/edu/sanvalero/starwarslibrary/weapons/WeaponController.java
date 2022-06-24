@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.Set;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class WeaponController {
     private static final String PATH = "/weapons";
     private final Logger log = LoggerFactory.getLogger(WeaponController.class);
